@@ -1,0 +1,11 @@
+/*
+В каких странах проживают наши клиенты.
+Используйте таблицу gb_shop.Customers.
+Сколько уникальных стран вы получили в ответе?
+*/
+-- Вы работаете с PostgreSQL
+-- Введите свой код ниже
+SELECT 
+  COUNT(DISTINCT country) 
+FROM 
+  gb_shop.Customers;

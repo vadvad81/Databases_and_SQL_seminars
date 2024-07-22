@@ -1,0 +1,9 @@
+/*Сколько клиентов проживает в Argentina? Используйте таблицу gb_shop.Customers.*/
+-- Вы работаете с PostgreSQL
+-- Введите свой код ниже
+SELECT 
+  COUNT(*) 
+FROM 
+  gb_shop.Customers 
+WHERE 
+  country = 'Argentina';

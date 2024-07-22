@@ -1,0 +1,11 @@
+/*Посчитайте среднюю цену и количество товаров в 8 категории.
+Используйте таблицу gb_shop.Products.*/
+-- Вы работаете с PostgreSQL
+-- Введите свой код ниже
+SELECT 
+  AVG(price) AS average_price, 
+  COUNT(*) AS product_count 
+FROM 
+  gb_shop.Products 
+WHERE 
+  categoryid = 8;
