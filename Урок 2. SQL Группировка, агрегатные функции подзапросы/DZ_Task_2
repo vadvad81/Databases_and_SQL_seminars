@@ -1,0 +1,8 @@
+/*Напишите запрос SQL для подсчета количества продуктов в категории "Мясо/птица". Используйте таблицы gb_shop.Products и gb_shop.Categories.*/
+-- Вы работаете с PostgreSQL
+-- Введите свой код ниже
+
+SELECT COUNT(p.productid) AS product_count
+FROM gb_shop.Products p
+JOIN gb_shop.Categories c ON p.categoryid = c.categoryid
+WHERE c.categoryname = 'Meat/Poultry';

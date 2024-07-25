@@ -1,0 +1,11 @@
+/*Выведите товары (название productname), в порядке убывания суммы количества (sum(Quantity), в котором их заказали. Используйте таблицы gb_shop.Products и gb_shop.OrderDetails.*/
+-- Вы работаете с PostgreSQL
+-- Введите свой код ниже
+SELECT productname 
+FROM gb_shop.Products
+WHERE productid IN (
+    SELECT productid 
+    FROM gb_shop.OrderDetails
+    GROUP BY productid
+    ORDER BY SUM(Quantity) DESC
+);

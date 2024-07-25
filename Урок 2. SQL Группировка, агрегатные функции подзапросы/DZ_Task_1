@@ -1,0 +1,20 @@
+/*Вам необходио проверить влияние семейного положения (family_status) на средний доход клиентов avg_income (среднее по столбцуincome) и средний запрашиваемый кредит avg_credit(credit_amount) .
+
+Подсчитайте количество записей для каждого значения в столбце family_status и назовите это количество cnt. Выведите в результате также средний доход клиентов avg_income и средний кредит avg_credit.
+
+Отсортируйте по среднему доходу клиентов avg_income в порядке возрастания.
+Используйте таблицу gb_shop.Clusters.*/
+
+-- Вы работаете с PostgreSQL
+-- Введите свой код ниже
+SELECT 
+    family_status, 
+    COUNT(*) AS cnt, 
+    AVG(income) AS avg_income, 
+    AVG(credit_amount) AS avg_credit
+FROM 
+    gb_shop.Clusters
+GROUP BY 
+    family_status
+ORDER BY 
+    avg_income ASC;
