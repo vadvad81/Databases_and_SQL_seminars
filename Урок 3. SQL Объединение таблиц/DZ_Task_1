@@ -1,0 +1,16 @@
+/*Расчет среднего чека для заказов
+Вам необходимо провести анализ среднего чека для заказов в вашем интернет-магазине.
+В результате этого запроса будет один столбец average_receipt.
+Используете таблицы gb_shop.OrderDetails и gb_shop.Products.
+*/
+-- Вы работаете с PostgreSQL
+-- Введите свой код ниже
+WITH receipt AS (
+    SELECT od.orderId, AVG(od.quantity * p.price) AS avg_order_value
+    FROM gb_shop.OrderDetails AS od
+    JOIN gb_shop.Products AS p ON p.productId = od.productId
+    GROUP BY od.orderId
+)
+
+SELECT AVG(avg_order_value) AS avg
+FROM receipt;
