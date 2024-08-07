@@ -1,0 +1,18 @@
+/*Рассчитайте среднюю сумму кредита (AvgCreditAmount) для каждого кластера в каждом месяце, учитывая общую среднюю сумму кредита за соответствующий месяц(OverallAvgCreditAmount).
+
+В результате этого запроса будет четыре столбца:
+
+month: месяц,
+cluster: кластер (или категория),
+AvgCreditAmount: средняя сумма кредита для каждого кластера в каждом месяце,
+OverallAvgCreditAmount: общая средняя сумма кредита для каждого месяца.
+Используйте таблицу gb_shop.Clusters.*/
+-- Вы работаете с PostgreSQL
+-- Введите свой код ниже
+SELECT
+    month,
+    cluster,
+    AVG(gb_shop.Clusters.credit_amount) AS AvgCreditAmount,
+    AVG(gb_shop.Clusters.credit_amount) OVER (PARTITION BY month) AS OverallAvgCreditAmount
+FROM gb_shop.Clusters
+GROUP BY month, cluster, gb_shop.Clusters.credit_amount;
